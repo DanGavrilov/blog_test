@@ -1,0 +1,58 @@
+.posts{
+    margin: auto;
+    width: 70%;
+    height: 500px;
+  
+}
+.img{
+    position: absolute;
+    width: 96px;
+    height: 83px;
+    left: 7px;
+    top: 0px;
+}
+.new{
+    position: absolute;
+    width: 113px;
+    height: 24px;
+    left: 267px;
+    top: 10px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+
+}
+.home{
+     position: absolute;
+     width: 140px;
+     height: 24px;
+     left: 142px;
+     top: 10px;
+
+     font-family: 'Inter';
+     font-style: normal;
+     font-weight: 400;
+     font-size: 20px;
+     line-height: 24px;
+}
+.line{
+    top:500px;
+}
+.block1{
+      position: absolute;
+      width: 141px;
+      height: 100%;
+      left: -38px;
+      top: 91px;
+
+      background: linear-gradient(0deg, #DD2B1F, #DD2B1F), linear-gradient(0deg, #DD2B1F, #DD2B1F), #DD2B1F;
+}
+.blog{
+      position: absolute;
+      width: 70%;
+      height: 100px;
+      left: 164px;
+}
