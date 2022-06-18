@@ -11,8 +11,9 @@
 </head>
 <body>
 <img class="img" src="static/images.png">
-<a href="/"><h2 class="home">Головна</h2></a>
-<a href="/register"><h2 class="new">Реєстрація</h2></a>
+<a href="/"><h2 class="home">Всі пости</h2></a>
+<a href="/create_post"><h2 class="new">Новий пост</h2></a>
+
 <br>
 <br>
 <br>
@@ -20,14 +21,13 @@
 <hr class="line">
 <div class="block1"></div>
 <div class="blog">
-    {% for el in articles %}
-    <h2>{{el.author_name}}</h2>
-    <p>{{el.posts}}</p>
-    <p><b>{{el.date.date()}}</b></p>
+<form method="post">
 
-    {% endfor %}
+    <input type="text" name="login" id="login"> <label>Логін </label><br><br>
+    <input type="password" name="password" id="password"><label>Пароль</label><br><br>
+    <input type="submit" value="Увійти"><br><br>
+</form>
+<a href="/register"><p>Створити новий акаунт</p></a>
 </div>
-<br>
-
 </body>
 </html>
