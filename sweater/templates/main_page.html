@@ -21,7 +21,7 @@
 <div class="block1"></div>
 <div class="blog">
     {% for el in articles %}
-    <h2>{{el.author_name}}</h2>
+    <h2>{{el.author.name}}</h2>
     <p>{{el.posts}}</p>
     <p><b>{{el.date.date()}}</b></p>
     {% endfor %}
