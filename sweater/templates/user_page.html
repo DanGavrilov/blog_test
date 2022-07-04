@@ -1,25 +1,11 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="static/style.css">
-    <title>Like_twitter.com.ua</title>
-
-</head>
-<body>
-<img class="img" src="static/images.png">
+{% extends 'index.html' %}
+{% block buttons %}
 <a href="/main"><h2 class="home">Головна</h2></a>
 <a href="/create_post"><h2 class="new">Створити пост</h2></a>
 <a href="/logout"><h2 class="login">Вийти</h2></a>
 <h2 class="user">{{current_user.name}}</h2>
-<br>
-<br>
-<br>
-<br>
-<hr class="line">
-<div class="block1"></div>
+{% endblock %}
+{% block content %}
 <div class="blog">
 
     {% for el in articles %}
@@ -30,6 +16,4 @@
     {% endfor %}
 </div>
 <br>
-
-</body>
-</html>
+{% endblock %}

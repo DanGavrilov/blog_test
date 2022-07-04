@@ -11,14 +11,17 @@
 </head>
 <body>
 <img class="img" src="static/images.png">
+{% block buttons %}
 <a href="/"><h2 class="home">Головна</h2></a>
 <a href="/register"><h2 class="new">Реєстрація</h2></a>
+{% endblock %}
 <br>
 <br>
 <br>
 <br>
 <hr class="line">
 <div class="block1"></div>
+{% block content %}
 <div class="blog">
     {% for el in articles %}
     <h2>{{el.author.name}}</h2>
@@ -28,6 +31,6 @@
     {% endfor %}
 </div>
 <br>
-
+{% endblock %}
 </body>
 </html>
