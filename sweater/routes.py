@@ -26,7 +26,6 @@ def register():
         password = generate_password_hash(request.form['password'])
         audit_password = check_password_hash(password, request.form['audit'])
         audit = registration_is_success(login, audit_password, name)
-        print(name)
         if audit:
             user = User(name=name, login=login, password=password)
             db.session.add(user)
@@ -36,7 +35,6 @@ def register():
             return render_template('register.html')
     else:
         return render_template('register.html')
-
 
 
 @app.route('/my')
@@ -85,8 +83,8 @@ def main_page():
 
 
 @app.route('/<int:id>/delete')
-def delete(id):
-    articles = Article.query.get_or_404(id)
+def delete(author_id):
+    articles = Article.query.get_or_404(author_id)
     db.session.delete(articles)
     db.session.commit()
     return redirect('/my')
