@@ -10,10 +10,10 @@ def load_user(user_id):
     return User.query.get(user_id)
 
 
-def registration_is_success(login, audit_password):
+def registration_is_success(login, audit_password, name):
     registration = True
     filter = User.query.filter_by(login=login).first()
-    if filter != None or audit_password != True:
+    if filter != None or audit_password != True or name == "" or login == "":
         registration = False
     return registration
 
@@ -25,7 +25,8 @@ def register():
         login = request.form['login']
         password = generate_password_hash(request.form['password'])
         audit_password = check_password_hash(password, request.form['audit'])
-        audit = registration_is_success(login, audit_password)
+        audit = registration_is_success(login, audit_password, name)
+        print(name)
         if audit:
             user = User(name=name, login=login, password=password)
             db.session.add(user)
@@ -35,6 +36,7 @@ def register():
             return render_template('register.html')
     else:
         return render_template('register.html')
+
 
 
 @app.route('/my')
@@ -47,7 +49,7 @@ def user_page():
 
 
 @app.route('/login', methods=['GET', 'POST'])
-def login():
+def log_in():
     login = request.form.get('login')
     password = request.form.get('password')
     if login and password:
