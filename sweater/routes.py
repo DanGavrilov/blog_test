@@ -1,8 +1,8 @@
-from sweater.madels import User, Article
+from sweater import login_manage, app, db
+from sweater.models import User, Article
 from flask import render_template, redirect, request, flash
 from flask_login import login_required, login_user, current_user, logout_user
 from werkzeug.security import generate_password_hash, check_password_hash
-from sweater import db, app, login_manage
 
 
 @login_manage.user_loader
@@ -82,19 +82,11 @@ def main_page():
     return render_template('main_page.html', articles=articles)
 
 
-@app.route('/<int:id>/delete')
-def delete(author_id):
-    articles = Article.query.get_or_404(author_id)
-    db.session.delete(articles)
-    db.session.commit()
-    return redirect('/my')
-
-
-@app.route('/<int:id>/del')
+@app.route('/<int:id>/delete', methods=['DELETE', 'GET'])
 @login_required
-def del_user(id):
-    users = User.query.get_or_404(id)
-    db.session.delete(users)
+def del_it(id):
+    article = Article.query.get_or_404(id)
+    db.session.delete(article)
     db.session.commit()
     return redirect('/my')
 

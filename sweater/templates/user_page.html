@@ -10,9 +10,10 @@
 
     {% for el in articles %}
     <h2>{{name}}</h2>
+    <h2>{{el.id}}</h2>
     <p>{{el.posts}}</p>
     <p><b>{{el.date.date()}}</b></p>
-    <a href="/{{ el.id }}/delete"><button value="Поскаржитися та видалити"> Видалити</button></a>
+    <a href="/{{ el.id }}/delete"><button value="Видалити"> Видалити</button></a>
     {% endfor %}
 </div>
 <br>

@@ -9,3 +9,4 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 login_manage = LoginManager(app)
 app.secret_key = 'LHIOhbjdkjbhskjfi118278bksdjdbhfh'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
