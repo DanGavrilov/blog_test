@@ -43,7 +43,8 @@ def user_page():
     user = current_user
     name = user.name
     articles = user.articles
-    return render_template('user_page.html', articles=articles, name=name)
+    users = User.query.all()
+    return render_template('user_page.html', articles=articles, name=name, users=users)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -87,6 +88,15 @@ def main_page():
 def del_it(id):
     article = Article.query.get_or_404(id)
     db.session.delete(article)
+    db.session.commit()
+    return redirect('/my')
+
+
+@app.route('/<int:id>/del', methods=['DELETE', 'GET'])
+@login_required
+def del_user(id):
+    users = User.query.get_or_404(id)
+    db.session.delete(users)
     db.session.commit()
     return redirect('/my')
 
