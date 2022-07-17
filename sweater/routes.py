@@ -13,7 +13,7 @@ def load_user(user_id):
 def registration_is_success(login, audit_password, name):
     registration = True
     filter = User.query.filter_by(login=login).first()
-    if filter != None or audit_password != True or name == "" or login == "":
+    if filter != None or audit_password != True or name == "" or login == "" or ' ' in login or ' ' in name:
         registration = False
     return registration
 

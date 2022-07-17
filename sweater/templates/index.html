@@ -27,7 +27,7 @@
     <h2>{{el.author.name}}</h2>
     <p>{{el.posts}}</p>
     <p><b>{{el.date.date()}}</b></p>
-
+    <a href="/{{ el.id }}/delete"><button value="Видалити"> Видалити</button></a>
     {% endfor %}
 </div>
 <br>
